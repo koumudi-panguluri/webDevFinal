@@ -9,11 +9,13 @@ export function Clothes(props) {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const data = await fetch(`http://localhost:4000/web/${props?.data}`).then((response) => {
+            const data = await fetch(`https://webdevnest-default-rtdb.firebaseio.com/category.json`).then((response) => {
                 return response.json().then((res) => {
-                    console.log(res?.data);
-                    setItems(res?.data);
-                    return res?.data;
+
+                    const filteredData = res?.filter((element) => element?.category === props?.data);
+                    console.log(filteredData);
+                    setItems(filteredData);
+                    return filteredData;
 
                 }).catch((err) => {
                     console.log(err);
