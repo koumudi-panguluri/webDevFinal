@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
 import { ContainerInner, ContainerOuter } from '@/components/Container'
-import Login from './Login'
 
 function NavLink({
   href,
